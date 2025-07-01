@@ -1,5 +1,5 @@
 
-# Hornet Android Technical Assigment
+# Hornet Android Technical Assignment
 
 This assignment is intended to test your basic Android skills and proficiency, and should take around 90 minutes to complete. This code won't be used in production, and the assessment is not for a designer role, so don't feel the need to optimize prematurely, create the perfect app architecture, or the world's cleanest UI.
 
