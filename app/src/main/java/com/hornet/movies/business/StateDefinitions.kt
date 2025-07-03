@@ -3,6 +3,8 @@ package com.hornet.movies.business
 import com.hornet.movies.data.model.meta.Genre
 import com.hornet.movies.data.model.movie.Movie
 import com.hornet.movies.data.model.movie.MovieDetails
+import com.hornet.movies.ui.model.GenreStat
+import com.hornet.movies.ui.model.MovieUi
 
 /** Simple state machine will be used to
  * support ELM-based approach. Here the definitions can found */
