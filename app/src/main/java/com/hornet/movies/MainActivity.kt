@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.hornet.movies.business.MovieViewModel
 import com.hornet.movies.business.UserAction
-import com.hornet.movies.ui.compose.MovieList
-import com.hornet.movies.ui.compose.PosterDialog
 import com.hornet.movies.ui.compose.rememberViewState
+import com.hornet.movies.ui.compose.v2.MovieListV2
+import com.hornet.movies.ui.compose.v2.PosterDialogV2
 import com.hornet.movies.ui.theme.HornetMoviesTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,8 +25,8 @@ class MainActivity : ComponentActivity() {
             val viewState = rememberViewState(state)
             HornetMoviesTheme {
                 Box(modifier = Modifier.fillMaxSize()) {
-                    MovieList(viewState, onAction = vm::send)
-                    PosterDialog(viewState.selectedPoster) { vm.send(UserAction.DismissPoster) }
+                    MovieListV2(viewState, onAction = vm::send)
+                    PosterDialogV2(viewState.selectedPoster) { vm.send(UserAction.DismissPoster) }
                 }
             }
         }
