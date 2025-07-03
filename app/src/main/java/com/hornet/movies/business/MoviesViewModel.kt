@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 class MovieViewModel : ViewModel() {
 
     private val moviesRepo: MoviesRepo = MoviesRepoImpl()
-
     private val _state = MutableStateFlow(StateMachineState())
     val state: StateFlow<StateMachineState> = _state
 
@@ -24,7 +23,8 @@ class MovieViewModel : ViewModel() {
         effects.forEach(::handle)
     }
 
-    //Side effects
+    /** Handling of the side effects.
+     * operations off the main thread executed here */
     private fun handle(effect: SideEffect) {
         viewModelScope.launch(Dispatchers.IO) {
             when (effect) {
@@ -42,7 +42,7 @@ class MovieViewModel : ViewModel() {
         }
     }
 
-    // Reducer
+    /** State reducer */
     private fun reduce(state: StateMachineState, action: Any): Pair<StateMachineState, List<SideEffect>> {
         return when (action) {
             is UserAction.LoadInitial -> state.copy(isLoading = true) to listOf(SideEffect.FetchNextMovies, SideEffect.FetchGenres)
@@ -71,6 +71,8 @@ class MovieViewModel : ViewModel() {
         }
     }
 
+    /** Actions that only sent inside the state machine itself,
+     * so the system reacts on its own if needed */
     private fun sendInternal(action: InternalAction) {
         val (newState, _) = reduce(_state.value, action)
         _state.value = newState
