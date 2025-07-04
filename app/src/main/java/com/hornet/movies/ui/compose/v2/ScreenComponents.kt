@@ -94,7 +94,7 @@ fun MovieItemV2(item: MovieUi, onToggleExpand: () -> Unit, onPosterClick: () -> 
                         color = colors.onSurface
                     )
                     Text(
-                        "Company: ${item.details.production_company?.name ?: "N/A"}",
+                        "Company: ${item.details.productionCompany?.name ?: "N/A"}",
                         style = MaterialTheme.typography.bodyLarge,
                         color = colors.onSurface
                     )

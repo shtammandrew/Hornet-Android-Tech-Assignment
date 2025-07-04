@@ -21,3 +21,7 @@
 #-renamesourcefileattribute SourceFile
 -keep class com.hornet.movies.data.model.movie.** { *; }
 -keep class com.hornet.movies.data.model.meta.** { *; }
+
+-keep @com.squareup.moshi.JsonClass class * { *; }
+-keep class **JsonAdapter { *; }
+-keepattributes *Annotation*, Signature, InnerClasses, KotlinMetadata
